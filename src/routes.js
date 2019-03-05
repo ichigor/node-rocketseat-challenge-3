@@ -42,4 +42,14 @@ routes.post(
   handle(controllers.PurchaseController.store)
 )
 
+routes.post(
+  '/purchases',
+  validate(validators.Purchase),
+  handle(controllers.PurchaseController.store)
+)
+
+routes.put('/purchases/:id', handle(controllers.PurchaseController.update))
+
+routes.get('/purchases/:id', handle(controllers.PurchaseController.show))
+
 module.exports = routes
